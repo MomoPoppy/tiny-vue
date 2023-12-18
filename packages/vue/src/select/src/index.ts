@@ -86,14 +86,14 @@ export default defineComponent({
     id: [Number, String],
     name: String,
     size: String,
-    remote: Boolean,
+    remote: Boolean, // 启用远程搜索
     remoteConfig: {
       type: Object,
       default() {
         return {
-          showIcon: false,
+          showIcon: false, // 显示下拉图标
           clearData: false,
-          autoSearch: false
+          autoSearch: false // 聚集自动搜索
         }
       }
     },
@@ -195,6 +195,7 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    // 多选配置
     selectConfig: {
       type: Object,
       default() {
@@ -205,6 +206,7 @@ export default defineComponent({
         }
       }
     },
+    // 单选配置
     radioConfig: {
       type: Object,
       default() {
