@@ -305,7 +305,9 @@ export default defineComponent({
     tooltipConfig: {
       type: Object,
       default() {
-        return {}
+        return {
+          type: 'normal'
+        }
       }
     },
     showEmptyValue: Boolean,

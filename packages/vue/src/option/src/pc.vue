@@ -25,7 +25,7 @@
     <component v-if="icon" :is="icon" class="tiny-option__icon"></component>
     <div class="tiny-option-wrapper" :class="state.selectMultiple ? 'calc-width' : 'full-width'">
       <slot>
-        <span class="tiny-option-label" v-auto-tip="{ placement: 'right' }">
+        <span class="tiny-option-label" v-auto-tip="{ placement: 'right', type: 'normal' }">
           {{ state.currentLabel }}
         </span>
       </slot>

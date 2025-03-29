@@ -158,6 +158,7 @@
                   <template v-if="hoverExpand"> + {{ state.collapseTagsLength }} </template>
                   <icon-ellipsis v-else></icon-ellipsis>
                 </tiny-tag>
+
                 <tiny-tag
                   v-for="(item, index) in state.selected"
                   :key="getValueKey(item)"
@@ -175,6 +176,7 @@
                   :maxWidth="maxTagWidth"
                 >
                   <tiny-tooltip
+                    :type="tooltipConfig.type"
                     :effect="tooltipConfig.effect || 'light'"
                     :placement="tooltipConfig.placement || 'top'"
                     :popper-class="tooltipConfig.popperClass || ''"

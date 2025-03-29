@@ -17,6 +17,7 @@ interface TooltipDirectiveConfig {
   always?: boolean // 是否文字不超长，也触发提示, 默认为 false
   content?: string // 自定义提示内容,  支持字符串或 VNode | VNode[], 不支持嵌套的 html 标签
   effect?: 'dark' | 'light' // tooltip主题，默认为light
+  type?: 'normal' | 'warning' | 'error' | 'info' | 'success'
   placement?: string
 }
 
@@ -51,6 +52,7 @@ const mouseenterHandler = (e) => {
   if (!currentTarget.boundingValue) {
     return
   }
+
   // always:true 或者 文字超长，则更新全局的tooltip
   if (isAlwaysShowTip(currentTarget) || isEllipsis(currentTarget)) {
     // 全局只创建一个tooltip实例，保证性能
@@ -61,7 +63,8 @@ const mouseenterHandler = (e) => {
         propsData: {
           renderContent: () => h('span', { class: 'tiny-directive-tip__content' }, tooltipContent.value),
           placement: getPlacement(currentTarget),
-          effect: isDarkTheme(currentTarget) ? 'dark' : 'light'
+          effect: isDarkTheme(currentTarget) ? 'dark' : 'light',
+          type: currentTarget.boundingValue?.type
         },
         component: Tooltip
       })
